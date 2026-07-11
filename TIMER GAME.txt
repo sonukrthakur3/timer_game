@@ -1,0 +1,38 @@
+import time
+
+print("=== 🕒 THE INVISIBLE TIMER CHALLENGE 🕒 ===")
+print("Welcome to the game! Let's test your internal clock.\n")
+
+# 1. Casual input message
+user_input = input("Batao, kitne seconds ka target set karein? 🎯: ")
+target_time = int(user_input)
+
+print(f"\nChallenge accepted! Tumhe clock ko EXACTLY {target_time} seconds pe rokna hai.")
+input("Ready? ENTER dabao aur hidden timer start karo... 🚀")
+
+# 2. Start the timer
+start_time = time.time() 
+print("\n⏳ Timer chal raha hai... Screen is blank. Jab lage time ho gaya, ENTER dabao!")
+
+# 3. Wait for them to stop it
+input() 
+end_time = time.time()
+
+# 4. Adding suspense before showing the result
+print("\nCalculating your time...")
+time.sleep(1.5)  # 1.5 second ka pause suspense ke liye!
+
+# Calculate the time and the difference
+time_passed = end_time - start_time
+exact_time_passed = round(time_passed)
+difference = abs(time_passed - target_time) 
+
+print(f"Tumne timer roka: {time_passed:.2f} seconds pe!\n")
+
+# 5. Humanized, expressive results
+if exact_time_passed == target_time:
+    print("🎉 MIND-BLOWING! Ekdum PERFECT timing! YOU WIN! 🏆")
+elif difference <= 2.0:
+    print(f"🤏 Uff, TOO CLOSE yaar! Sirf {difference:.2f} seconds se miss ho gaya. Almost there!")
+else:
+    print(f"😅 TOO FAR boss! Tumhara time {difference:.2f} seconds off the mark tha. Thoda aur focus karo!")
